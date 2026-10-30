@@ -35,7 +35,7 @@ jobs:
         run: vp build
 
   deploy:
-    name: Deploy
+    name: cd
     runs-on: ubuntu-26.04
 
     needs: ci
