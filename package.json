@@ -6,12 +6,15 @@
     "#/*": "./src/*"
   },
   "scripts": {
-    "dev": "vp dev --port 3000",
-    "generate-routes": "tsr generate",
+    "test": "vp test",
+    "check": "vp check",
     "build": "vp build",
+    "prepare": "vp config",
     "preview": "vp preview",
-    "deploy": "pnpm run build && wrangler deploy",
-    "prepare": "vp config"
+    "dev": "vp dev --port 3000",
+    "check:fix": "vp check --fix",
+    "generate-routes": "tsr generate",
+    "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
