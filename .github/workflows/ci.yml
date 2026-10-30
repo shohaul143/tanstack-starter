@@ -20,7 +20,7 @@ jobs:
       - name: Setup Vite+
         uses: voidzero-dev/setup-vp@v1.22.0
         with:
-          node-version-file: ".node-version"
+          node-version: "lts"
           cache: true
           run-install: true
 
@@ -57,7 +57,7 @@ jobs:
       - name: Setup Vite+
         uses: voidzero-dev/setup-vp@v1.22.0
         with:
-          node-version-file: ".node-version"
+          node-version: "lts"
           cache: true
           run-install: true
 
