@@ -8,6 +8,8 @@ import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
 import { cloudflare } from "@cloudflare/vite-plugin";
 
+const isTest = process.env.VITEST === "true";
+
 const config = defineConfig({
   staged: {
     "*": "vp check --fix",
@@ -24,7 +26,13 @@ const config = defineConfig({
   resolve: { tsconfigPaths: true },
   plugins: lazyPlugins(() => [
     devtools(),
-    cloudflare({ viteEnvironment: { name: "ssr" } }),
+    ...(isTest
+      ? []
+      : [
+          cloudflare({
+            viteEnvironment: { name: "ssr" },
+          }),
+        ]),
     tailwindcss(),
     tanstackStart(),
     viteReact(),
