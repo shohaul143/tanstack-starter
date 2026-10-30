@@ -23,6 +23,13 @@ updates:
         update-types:
           - major
 
+    # Node types must match the runtime pinned in .node-version.
+    # Bump this by hand when you move to a new Node major.
+    ignore:
+      - dependency-name: "@types/node"
+        update-types:
+          - version-update:semver-major
+
   - package-ecosystem: github-actions
     directory: /
     schedule:
