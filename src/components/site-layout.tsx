@@ -5,7 +5,7 @@ import type { MouseEvent } from "react";
 import { Container } from "#/components/container";
 import { Button } from "#/components/ui/button";
 
-const githubUrl = "https://github.com/shohaul143/tanstack-starter";
+export const githubUrl = "https://github.com/shohaul143/tanstack-starter";
 const githubProfileUrl = "https://github.com/shohaul143";
 const freePalestineUrl = "https://www.jewishvoiceforpeace.org";
 
@@ -143,7 +143,7 @@ function SiteFooter() {
             rel="noreferrer"
             className="text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
           >
-            GitHub
+            Source
           </a>
           <a
             href={freePalestineUrl}
