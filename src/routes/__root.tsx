@@ -38,11 +38,11 @@ export const Route = createRootRoute({
     links: [
       {
         rel: "stylesheet",
-        href: appCss,
+        href: shadcnCss,
       },
       {
         rel: "stylesheet",
-        href: shadcnCss,
+        href: appCss,
       },
     ],
   }),
