@@ -13,7 +13,7 @@
   font-family: "Caveat Variable", cursive;
 }
 
-/* Circular theme reveal; the clip-path animation lives in theme-toggle.tsx. */
+/* Circular theme reveal; the clip-path animation lives in site-layout.tsx. */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
