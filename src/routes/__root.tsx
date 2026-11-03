@@ -1,6 +1,4 @@
 import { HeadContent, ScriptOnce, Scripts, createRootRoute } from "@tanstack/react-router";
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import { TanStackDevtools } from "@tanstack/react-devtools";
 
 import { SiteLayout } from "#/components/site-layout";
 import appCss from "../styles/app.css?url";
@@ -62,17 +60,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <ScriptOnce>{themeScript}</ScriptOnce>
         {children}
-        <TanStackDevtools
-          config={{
-            position: "bottom-right",
-          }}
-          plugins={[
-            {
-              name: "Tanstack Router",
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
         <Scripts />
       </body>
     </html>
