@@ -1,16 +1,22 @@
-import { Button } from "#/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({ component: Home });
 
+const paragraphs = [
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+];
+
 function Home() {
   return (
-    <div className="p-8">
-      <h1 className="text-4xl font-bold">Welcome to TanStack Start</h1>
-      <p className="mt-4 text-lg">
-        Edit <code>src/routes/index.tsx</code> to get started.
-        <Button>Click ME</Button>
-      </p>
-    </div>
+    <>
+      <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+        Lorem ipsum dolor sit amet
+      </h1>
+      <div className="mt-6 max-w-2xl space-y-4 text-muted-foreground">
+        {paragraphs.map((text) => (
+          <p key={text}>{text}</p>
+        ))}
+      </div>
+    </>
   );
 }
