@@ -48,7 +48,7 @@ Before finishing, review the diff, remove debug code and unused imports, run rel
 
 ## Tooling (Vite+)
 
-- `vp run dev` starts this repo's `package.json` dev script (port 3000); `vp dev` starts Vite+'s built-in dev server.
+- `vp run dev` starts this repo's `package.json` dev script (port 3000);.
 - Use `vp check`, `vp test`, and `vp build` for the standard checks and production build.
 - Use `vp run <script>` for other `package.json` scripts or tasks in `vite.config.ts`; use `vpx <file.ts>` for ad-hoc TypeScript scripts.
 - Check `package.json` and the [Vite+ command guide](https://viteplus.dev/guide/run) when unsure. Run relevant checks and report only what you actually ran. Deploy only when asked.
