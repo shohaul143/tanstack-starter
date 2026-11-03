@@ -1,5 +1,4 @@
 import { defineConfig, lazyPlugins } from "vite-plus";
-import { devtools } from "@tanstack/devtools-vite";
 
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 
@@ -11,6 +10,9 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 const isTest = process.env.VITEST === "true";
 
 const config = defineConfig({
+  define: {
+    __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
+  },
   staged: {
     "*": "vp check --fix",
   },
@@ -25,7 +27,6 @@ const config = defineConfig({
   },
   resolve: { tsconfigPaths: true },
   plugins: lazyPlugins(() => [
-    devtools(),
     ...(isTest
       ? []
       : [
