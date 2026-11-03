@@ -144,7 +144,7 @@ function SiteFooter() {
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+            className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
           >
             Source
           </a>
