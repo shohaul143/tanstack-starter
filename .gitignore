@@ -15,6 +15,7 @@ todos.json
 !.vscode/
 !.vscode/settings.json
 !.vscode/extensions.json
+.playwright-mcp
 
 # dotenv environment variable files
 .env.*
