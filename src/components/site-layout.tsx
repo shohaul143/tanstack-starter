@@ -5,6 +5,15 @@ import type { MouseEvent } from "react";
 import { Container } from "#/components/container";
 import { Button } from "#/components/ui/button";
 
+const buildDate = new Date(__BUILD_DATE__);
+const lastUpdated = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+}).format(buildDate);
+const copyrightYear = buildDate.getUTCFullYear();
+
 export const githubUrl = "https://github.com/shohaul143/tanstack-starter";
 const githubProfileUrl = "https://github.com/shohaul143";
 const freePalestineUrl = "https://www.jewishvoiceforpeace.org";
@@ -70,18 +79,20 @@ function toggleTheme(event: MouseEvent<HTMLButtonElement>) {
 
   const transition = document.startViewTransition(() => applyTheme(isDark));
 
-  void transition.ready.then(() => {
-    document.documentElement.animate(
-      {
-        clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`],
-      },
-      {
-        duration: 500,
-        easing: "ease-in-out",
-        pseudoElement: "::view-transition-new(root)",
-      },
-    );
-  });
+  void transition.ready
+    .then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`],
+        },
+        {
+          duration: 500,
+          easing: "ease-in-out",
+          pseudoElement: "::view-transition-new(root)",
+        },
+      );
+    })
+    .catch(() => {});
 }
 
 function ThemeToggle() {
@@ -108,20 +119,12 @@ function ThemeToggle() {
 }
 
 function SiteFooter() {
-  const now = new Date();
-  const lastUpdated = new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    timeZone: "UTC",
-  }).format(now);
-
   return (
     <footer className="border-t">
       <Container className="flex items-start justify-between gap-4 py-8">
         <div className="space-y-1">
           <p className="text-sm text-muted-foreground">
-            © {now.getFullYear()}{" "}
+            © {copyrightYear}{" "}
             <a
               href={githubProfileUrl}
               target="_blank"
@@ -132,7 +135,7 @@ function SiteFooter() {
             </a>
           </p>
           <p className="text-xs text-muted-foreground">
-            Last updated <time dateTime={now.toISOString().slice(0, 10)}>{lastUpdated}</time>
+            Last updated <time dateTime={buildDate.toISOString().slice(0, 10)}>{lastUpdated}</time>
           </p>
         </div>
 
