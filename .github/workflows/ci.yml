@@ -42,6 +42,10 @@ jobs:
 
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: true
+
     environment:
       name: production
       url: https://tanstack-starter.shohaul143.workers.dev
