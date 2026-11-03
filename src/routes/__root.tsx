@@ -1,4 +1,10 @@
-import { HeadContent, ScriptOnce, Scripts, createRootRoute } from "@tanstack/react-router";
+import type { QueryClient } from "@tanstack/react-query";
+import {
+  HeadContent,
+  ScriptOnce,
+  Scripts,
+  createRootRouteWithContext,
+} from "@tanstack/react-router";
 
 import { SiteLayout } from "#/components/site-layout";
 import appCss from "../styles/app.css?url";
@@ -14,7 +20,7 @@ const themeScript = `(() => {
   root.style.colorScheme = theme;
 })();`;
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       {
