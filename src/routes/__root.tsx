@@ -6,6 +6,7 @@ import {
   createRootRouteWithContext,
 } from "@tanstack/react-router";
 
+import { NotFound } from "#/components/not-found";
 import { SiteLayout } from "#/components/site-layout";
 import appCss from "../styles/app.css?url";
 import shadcnCss from "../styles/shadcn.css?url";
@@ -77,6 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
   }),
   component: SiteLayout,
+  notFoundComponent: NotFound,
   shellComponent: RootDocument,
 });
 
